@@ -7,14 +7,22 @@ import { Boton } from  './componentes/boton.jsx';
 import { useLocalStorage } from "./hooks/useLocalStorage.jsx"
 
 //const listaDeLaCompra = [
-  //{image:"/tomate.png" ,text: "Lata de tomate", complete: false},
-  //{image:"/yogur-natura.png",text: "Yogures naturales", complete: false},
-  //{image:"/ensalada.png",text: "Ensalada César", complete: false},
-  //{image:"/pizza.png",text: "Pizza 4 quesos", complete: false},
-  //{image:"/spageti.png",text: "Spagetti con queso", complete: false},
-  //{image:"/chocolate-negro.png",text: "Chocolate negro", complete: false},
-  //{image:"/rollitos.png",text: "Rollitos de opio", complete: false},
-  //{image:"/alhambra.png",text: "Alhambra verde", complete: false},
+  //{text: "Lata de tomate", complete: false},
+  //{text: "Yogures naturales", complete: false},
+  //{text: "Ensalada César", complete: false},
+  //{text: "Pizza 4 quesos", complete: false},
+  //{text: "Spagetti con queso", complete: false},
+  //{text: "Chocolate negro", complete: false},
+  //{text: "Rollitos de opio", complete: false},
+  //{text: "fffjfjfj", complete: false},
+  //{text: "fkfkfkff verde", complete: false},
+  //{text: "qqqq verde", complete: false},
+  //{text: "wwww verde", complete: false},
+  //{text: "eeee verde", complete: false},
+  //{text: "rrrr verde", complete: false},
+  //{text: "ttt verde", complete: false},
+  //{text: "yyyy verde", complete: false},
+  //{text: "uuuu verde", complete: false},
 //]
 
 //localStorage.setItem("LISTA_V1", JSON.stringify(listaDeLaCompra));
@@ -47,16 +55,17 @@ function App() {
     <Titulo/>
     <Buscador valorInput={valorInput} setvalorInput={setValorInput}/>
 
-    {todos.every(producto => producto.complete) && <p style={{ textAlign: 'center', color: 'green', fontSize: '20px' }}>🎉 ¡Has comprado todo!</p>}
+    {todos.length > 0 && todos.every(producto => producto.complete) && <p style={{ textAlign: 'center', color: 'rgb(10, 166, 239)', fontSize: '15px'}}>Completaste todas tus tareas!</p>}
 
+    
     <Lista>
 
-      {loading && <p>Cargando...</p>}
-      {error && <p>Hubo un problema</p>}
-      {!loading && buscar.length === 0 && <p>No tienes ninguna tarea</p>}
+      {loading && <p style={{width: '100%', textAlign: 'center',}}>Cargando...</p>}
+      {error && <p style={{width: '100%', textAlign: 'center',}}>Ha ocurrido un error, por favor intentalo de nuevo</p>}
+      {!loading && buscar.length === 0 && <p style={{width: '100%', textAlign: 'center',}}>Crea tu primera tarea</p>}
 
       {buscar.map(producto =>(
-        <ListItem key={producto.text} text={producto.text} image={producto.image} complete={producto.complete} 
+        <ListItem key={producto.text} text={producto.text} complete={producto.complete} 
         onComplete={() => completado(producto.text)}
         onDelete={() => borrar(producto.text)}/>
       ) )}

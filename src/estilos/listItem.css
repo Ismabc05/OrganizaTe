@@ -1,68 +1,48 @@
+/* Tarjeta de la tarea */
 .lista {
   list-style: none;
+  padding: 10px 20px;
   display: flex;
-  flex-direction: column;       /* apilar p arriba y acciones abajo */
-  justify-content: space-between; /* p arriba, acciones abajo */
-  align-items: center;           /* centrar todo horizontalmente */
-  border: 3px solid rgb(101, 101, 101);
-  border-radius: 8px;
-  height: 400px;
-  width: 300px;
-  padding: 10px;
+  align-items: center;
+  background: white;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  height: 50px;
+  width: 780px;
+  gap: 10px;
 
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
-.lista:hover {
-  transform: scale(1.05); /* aumenta un 5% */
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* sombra para efecto de profundidad */
-}
-
-.lista-check {
-  border-color: #4caf50;
-  box-shadow: 0 0 5px #4caf50;
-}
-
 .parrafo {
-  
-  text-align: center;           /* opcional, centra el texto */
+  flex: 1;               /* ocupa el espacio entre iconos */
+  margin: 0;
 }
 
-.parrafo-check{
+/* Texto tachado cuando está completado */
+.parrafo-check {
   text-decoration: line-through;
 }
 
-.acciones {
-  display: flex;
-  gap: 10px;                    /* espacio entre V y X */
-  justify-content: center;       /* centra los spans horizontalmente */
-}
-
 .check{
-  font-size: 30px;
+  font-size: 20px;
   cursor: pointer;
   color: rgb(48, 48, 48);
 }
 
 .check-active{
-  color: green;
+  color:  rgb(10, 166, 239);
   pointer-events: none;
   opacity: 0.6;
 }
 
 .remove{
-  color: rgb(48, 48, 48);
-  font-size: 30px;
+  color: rgb(53, 52, 52);
+  font-size: 25px;
   cursor: pointer;
   transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .remove:hover{
-  color: red;
-  transform: scale(1.2);
-}
-
-.imagen{
-  width: 300px;
-  mix-blend-mode: multiply;
+  color: rgb(0, 0, 0);
+  transform: scale(1.5);
 }

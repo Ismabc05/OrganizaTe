@@ -1,8 +1,0 @@
-ul {
-  display: flex; /* se pone en columna ya que felxbox lo pone por defecto */
-  gap: 60px;
-  flex-wrap: wrap;   /* aquí sí */
-  margin-top: 50px;
-  padding-left: 40px;
-  width: 1500px;
-}
