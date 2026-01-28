@@ -2,7 +2,12 @@ import "../estilos/vacio.css";
 
 function Vacio() {
     return (
-        <p>No tiene ninguna tarea, crea una</p>
+        <div className="tareas-vacias">
+
+            <img src="/imagen-vacio.png" alt="No hay tareas"/>
+            <p className="parrafo-vacio">No tienes ninguna tarea, crea una tarea</p>
+
+        </div>
     );
 }
 

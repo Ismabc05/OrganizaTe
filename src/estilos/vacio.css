@@ -1,0 +1,12 @@
+.tareas-vacias {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem; /* espacio entre imagen y texto */
+  margin-top: 250px;
+}
+
+.tareas-vacias img {
+  width: 200px; /* ajusta al tamaño que quieras */
+  height: auto;
+}

@@ -2,7 +2,12 @@ import "../estilos/error.css";
 
 function Error() {
     return (
-        <p>Ha abido un problema, porfavor intentalo de nuevo</p>
+        <div className="error">
+
+            <img src="/error-oficial.png" alt="Hubo un error"/>
+            <p className="parrafo-error">Hubo un error, por favor intentalo de nuevo</p>
+
+        </div>
     );
 }
 

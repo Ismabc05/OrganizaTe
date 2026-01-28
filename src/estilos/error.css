@@ -1,0 +1,12 @@
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem; /* espacio entre imagen y texto */
+  margin-top: 250px;
+}
+
+.error img {
+  width: 200px; /* ajusta al tamaño que quieras */
+  height: auto;
+}
