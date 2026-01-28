@@ -1,0 +1,25 @@
+.lista-skeleton{
+    pointer-events: none;
+}
+
+.check-skeleton{
+    width: 24px;
+    height: 24px;
+    background: #d3d3d3;
+    border-radius: 50%;
+}
+
+
+.parrafo-skeleton{
+    width: 70%;
+    height: 16px;
+    background: #d3d3d3;
+    border-radius: 4px;
+}
+
+.remove-skeleton{
+    width: 24px;
+    height: 24px;
+    background: #d3d3d3;
+    border-radius: 50%;
+}

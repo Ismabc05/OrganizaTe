@@ -4,6 +4,9 @@ import { Buscador } from './componentes/search.jsx';
 import { Lista } from './componentes/list.jsx';
 import { ListItem } from './componentes/listItem.jsx';
 import { Boton } from  './componentes/boton.jsx';
+import { Loading } from  './componentes/loading.jsx';
+import { Error } from  './componentes/error.jsx';
+import { Vacio } from  './componentes/vacio.jsx';
 import { useLocalStorage } from "./hooks/useLocalStorage.jsx"
 
 //const listaDeLaCompra = [
@@ -60,9 +63,9 @@ function App() {
     
     <Lista>
 
-      {loading && <p style={{width: '100%', textAlign: 'center',}}>Cargando...</p>}
-      {error && <p style={{width: '100%', textAlign: 'center',}}>Ha ocurrido un error, por favor intentalo de nuevo</p>}
-      {!loading && buscar.length === 0 && <p style={{width: '100%', textAlign: 'center',}}>Crea tu primera tarea</p>}
+      {loading && <Loading/>}
+      {error && <Error/>}
+      {!loading && buscar.length === 0 && <Vacio/>}
 
       {buscar.map(producto =>(
         <ListItem key={producto.text} text={producto.text} complete={producto.complete} 
