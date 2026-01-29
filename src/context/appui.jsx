@@ -7,6 +7,7 @@ import { Loading } from  '../componentes/loading.jsx';
 import { Error } from  '../componentes/error.jsx';
 import { Vacio } from  '../componentes/vacio.jsx';
 import { TodoContext} from './context.jsx';
+import { Mensaje } from '../componentes/mensaje.jsx';
 import React from 'react';
 
 
@@ -18,6 +19,7 @@ function AppUi () {
     <>
         <Titulo/>
         <Buscador/>
+        <Mensaje/>
 
         {todos.length > 0 && todos.every(producto => producto.complete) && <p style={{ textAlign: 'center', color: 'rgb(10, 166, 239)', fontSize: '15px'}}>Completaste todas tus tareas!</p>}
 

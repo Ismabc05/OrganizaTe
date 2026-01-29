@@ -7,6 +7,9 @@ function TodoProvider ({children}) {
     const {item: todos, actualizar: setTodos, loading, error} = useLocalStorage("LISTA_V1", [])
     const [valorInput, setValorInput] = React.useState("");
 
+    const productosCompletados = todos.filter(producto => !!producto.complete).length
+    const totalProductos = todos.length
+
     const buscar = todos.filter((producto) => {
         return producto.text.toLowerCase().includes(valorInput.toLocaleLowerCase())
      })
@@ -24,7 +27,7 @@ function TodoProvider ({children}) {
     }
 
     return(
-        <TodoContext.Provider value={{loading, error, setValorInput, buscar, borrar, completado, todos}}>
+        <TodoContext.Provider value={{loading, error, setValorInput, buscar, borrar, completado, todos, totalProductos, productosCompletados}}>
             {children}
         </TodoContext.Provider>
     )

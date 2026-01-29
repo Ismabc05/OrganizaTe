@@ -1,0 +1,17 @@
+.contenedor-mensaje {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start; /* mueve todo a la derecha */
+  padding: 0px 40px;        /* espacio interno opcional */
+  box-sizing: border-box;
+}
+
+.mensaje {
+  margin: 0;
+  font-size: 16px;
+  color: #000000;
+}
+
+.color{
+    color: rgb(10, 166, 239);
+}
