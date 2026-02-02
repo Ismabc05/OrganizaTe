@@ -8,4 +8,9 @@ h1 {
     color: rgb(10, 166, 239);
 }
 
+.contenedor-titulo{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
 

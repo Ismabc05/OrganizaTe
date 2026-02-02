@@ -6,14 +6,17 @@ import { Boton } from  '../componentes/boton.jsx';
 import { Loading } from  '../componentes/loading.jsx';
 import { Error } from  '../componentes/error.jsx';
 import { Vacio } from  '../componentes/vacio.jsx';
-import { TodoContext} from './context.jsx';
 import { Mensaje } from '../componentes/mensaje.jsx';
+import { TodoContext} from './context.jsx';
+import { Modal } from '../componentes/modal.jsx';
+import { Form } from '../componentes/form.jsx';
+
 import React from 'react';
 
 
 
 function AppUi () {
-    const {loading, error, buscar, completado, borrar, todos} = React.useContext(TodoContext);
+    const {loading, error, buscar, completado, borrar, todos, openModal, setOpenModal} = React.useContext(TodoContext);
 
     return (
     <>
@@ -39,6 +42,12 @@ function AppUi () {
         </Lista>
 
         <Boton/>
+
+        {openModal && (
+            <Modal>
+                <Form/>
+            </Modal>
+        )}
     </>
   )
 }

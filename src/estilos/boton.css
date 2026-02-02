@@ -1,4 +1,4 @@
-button {
+.agregar {
   background-color: rgb(10, 166, 239);
   box-shadow: 0px 5px 25px rgb(10, 166, 239);
   border: none;
@@ -19,7 +19,7 @@ button {
   transition: .3s ease;
 }
 
-button:hover {
+.agregar:hover {
   transform: scale(1.2);
   box-shadow: 0px 5px 25px rgb(10, 166, 239);
 }
