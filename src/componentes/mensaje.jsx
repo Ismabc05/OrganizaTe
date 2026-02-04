@@ -6,7 +6,7 @@ function Mensaje () {
      const {totalProductos, productosCompletados} = React.useContext(TodoContext);
 
      return(
-         <div className="contenedor-mensaje"><p className="mensaje">Has completado <span className="color">{productosCompletados}</span> de <span className="color">{totalProductos}</span></p></div>
+         <div className="contenedor-mensaje"><p className="mensaje">Has completado <span className="color">{productosCompletados}</span> de <span className="color">{totalProductos}</span> tareas</p></div>
      )
 }
 

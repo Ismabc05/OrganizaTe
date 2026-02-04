@@ -4,9 +4,9 @@ import { useLocalStorage } from "../hooks/useLocalStorage";
 const TodoContext = React.createContext();
 
 function TodoProvider ({children}) {
-    const {item: todos, actualizar: setTodos, loading, error} = useLocalStorage("LISTA_V1", [])
+    const {item: todos, actualizar: setTodos, loading, error} = useLocalStorage("LISTA_V1", []);
     const [valorInput, setValorInput] = React.useState("");
-    const [openModal, setOpenModal] = React.useState(false)
+    const [openModal, setOpenModal] = React.useState(false);
 
     const productosCompletados = todos.filter(producto => !!producto.complete).length
     const totalProductos = todos.length
@@ -15,8 +15,17 @@ function TodoProvider ({children}) {
         return producto.text.toLowerCase().includes(valorInput.toLocaleLowerCase())
      })
 
+    const añadirTarea = (newText) => {
+        const nuevaLista = [... todos];
+        nuevaLista.push({
+            text: newText,
+            completado: false,
+        })
+        setTodos(nuevaLista)
+    }
+
     const completado = (text) => {
-    const nuevaLista = [... todos]
+    const nuevaLista = [... todos];
     const nuevoCompletado = nuevaLista.findIndex((producto) => producto.text === text);
         nuevaLista[nuevoCompletado].complete = true;
         setTodos(nuevaLista);
@@ -28,7 +37,7 @@ function TodoProvider ({children}) {
     }
 
     return(
-        <TodoContext.Provider value={{loading, error, setValorInput, buscar, borrar, completado, todos, totalProductos, productosCompletados, openModal, setOpenModal}}>
+        <TodoContext.Provider value={{loading, error, setValorInput, buscar, borrar, completado, todos, totalProductos, productosCompletados, openModal, setOpenModal, añadirTarea}}>
             {children}
         </TodoContext.Provider>
     )
