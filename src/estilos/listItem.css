@@ -51,7 +51,7 @@
 
 @media (max-width: 865px) {
   .lista {
-    width: 90%;          /* Ocupa casi todo el ancho de la pantalla */
+    width: 80%;          /* Ocupa casi todo el ancho de la pantalla */
     padding: 8px 12px;   /* Ajustamos padding */
     height: auto;        /* Altura automática según contenido */
     margin-bottom: 15px; /* Espacio entre tarjetas */
