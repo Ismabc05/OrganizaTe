@@ -48,3 +48,13 @@
   color: rgb(0, 0, 0);
   transform: scale(1.5);
 }
+
+@media (max-width: 865px) {
+  .lista {
+    width: 90%;          /* Ocupa casi todo el ancho de la pantalla */
+    padding: 8px 12px;   /* Ajustamos padding */
+    height: auto;        /* Altura automática según contenido */
+    margin-bottom: 15px; /* Espacio entre tarjetas */
+    gap: 8px;            /* Separación entre elementos más compacta */
+  }
+}
