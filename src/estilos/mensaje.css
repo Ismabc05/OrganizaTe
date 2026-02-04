@@ -15,3 +15,10 @@
 .color{
     color: rgb(2, 173, 252);
 }
+
+@media (max-width: 600px) {
+  .contenedor-mensaje {
+    text-align: center;
+    justify-content: center;
+  } 
+}
