@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   gap: 1rem; /* espacio entre imagen y texto */
-  margin-top: 250px;
+  margin-top: 180px;
 }
 
 .error img {
