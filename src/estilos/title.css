@@ -14,3 +14,10 @@ h1 {
     justify-content: space-around;
 }
 
+@media (max-width: 700px) {
+  .contenedor-titulo {
+    text-align: center;
+    justify-content: center;
+  }
+}
+
