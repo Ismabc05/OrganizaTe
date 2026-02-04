@@ -28,7 +28,7 @@
 
 @media (max-width: 600px) {
   .contenido-modal {
-    width: 90%;        /* Ocupa casi todo el ancho de la pantalla */
+    width: 80%;        /* Ocupa casi todo el ancho de la pantalla */
     min-width: unset;  /* Quitamos el min-width grande de desktop */
     max-width: unset;  /* Quitamos el max-width de desktop */
     padding: 16px;     /* Ajustamos padding para móvil */
