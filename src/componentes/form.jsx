@@ -1,6 +1,7 @@
 import React from "react";
 import "../estilos/form.css";
-import { TodoContext } from "../context/context"
+import { TodoContext } from "../context/context";
+import { VscClose } from "react-icons/vsc";
 
 function Form () {
 
@@ -19,7 +20,9 @@ function Form () {
 
     return (
         <form className="form">
-            <label className="label"> Escribe una tarea:</label>
+
+            <VscClose  className="icono-cancelar" onClick={cerrarModal}/>
+            <label className="label"> Escribe tu siguiente tarea:</label>
             <textarea value={guardarInfo} onChange={guardarTexto} className="textarea"></textarea>
 
             <div className="contenedor-botones">
