@@ -23,7 +23,14 @@ function Form () {
 
             <VscClose  className="icono-cancelar" onClick={cerrarModal}/>
             <label className="label"> Escribe tu siguiente tarea:</label>
-            <textarea value={guardarInfo} onChange={guardarTexto} className="textarea"></textarea>
+            <textarea value={guardarInfo} onChange={guardarTexto} className="textarea" onKeyDown={(e) => {
+                if(e.key=== "Enter" && guardarInfo.trim() !== ""){ // si el usuario no escribio nada
+                    e.preventDefault();
+                    añadirTarea(guardarInfo);
+                    cerrarModal();
+                }
+
+            }}></textarea>
 
             <div className="contenedor-botones">
 
@@ -34,8 +41,10 @@ function Form () {
 
                 <button className="btn-confirmar" onClick={(event) => {
                     event.preventDefault();
-                    añadirTarea(guardarInfo);
-                    cerrarModal();
+                    if(guardarInfo.trim()){ // si el usuario escribio algo
+                        añadirTarea(guardarInfo);
+                        cerrarModal();
+                    }
                 }}>Confirmar</button>
 
             </div>
