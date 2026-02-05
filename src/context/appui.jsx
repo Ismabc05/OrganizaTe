@@ -24,7 +24,7 @@ function AppUi () {
         <Buscador/>
         {todos.length > 0 && <Mensaje/>}
 
-        {todos.length > 0 && todos.every(producto => producto.complete) && <p style={{ textAlign: 'center', color: 'rgb(10, 166, 239)', fontSize: '15px'}}>Completaste todas tus tareas!</p>}
+        {todos.length > 0 && todos.every(producto => producto.complete) && <p style={{ textAlign: 'center', color: 'rgb(10, 166, 239)', fontSize: '15px'}}>¡Completaste todas tus tareas!</p>}
 
     
         <Lista>
