@@ -1,13 +1,13 @@
 import { SpeedInsights } from "@vercel/speed-insights/react"
 import React from 'react';
-import {  createBrowserRouter, RouterProvider, } from "react-router-dom";
+import {  createHashRouter, RouterProvider, } from "react-router-dom";
 
 import { AppUi } from './context/appui.jsx';
 import { TodoProvider } from './context/context.jsx';
 import { Edit } from "./componentes/edit.jsx"
 import { NotFound } from "./componentes/notfound.jsx";
 
-const rutas = createBrowserRouter([
+const rutas = createHashRouter([
   {
     path: "/",
     element: <AppUi />,
