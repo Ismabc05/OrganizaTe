@@ -35,7 +35,8 @@ function AppUi () {
         {buscar.map(producto =>(
             <ListItem key={producto.text} text={producto.text} complete={producto.complete} 
             onComplete={() => completado(producto.text)}
-            onDelete={() => borrar(producto.text)}/>
+            onDelete={() => borrar(producto.text)}
+            onEdit={() => console.log("Estamos editando")}/>
         ) )}
 
         </Lista>
