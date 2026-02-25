@@ -49,6 +49,18 @@
   transform: scale(1.5);
 }
 
+.edit{
+  color: rgb(105, 104, 104);
+  font-size: 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.edit:hover{
+  color: rgb(0, 0, 0);
+  transform: scale(1.5);
+}
+
 @media (max-width: 865px) {
   .lista {
     width: 80%;          /* Ocupa casi todo el ancho de la pantalla */
