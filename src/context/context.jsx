@@ -40,12 +40,20 @@ function TodoProvider ({children}) {
     setTodos(nuevaLista);
     }
 
-    const editar = () => {
-        navegar("/edit/:id")
+    const editar = (id) => {
+        navegar(`/edit/${id}`)
+    }
+
+    const actualizarProducto = (id, newTexto) => {
+         const nuevaLista = [... todos];
+        const nuevoCompletado = nuevaLista.findIndex((producto) => producto.id === id);
+        nuevaLista[nuevoCompletado].text = newTexto;
+        setTodos(nuevaLista);
+
     }
 
     return(
-        <TodoContext.Provider value={{loading, error, setValorInput, buscar, borrar, completado, todos, totalProductos, productosCompletados, openModal, setOpenModal, añadirTarea, editar}}>
+        <TodoContext.Provider value={{loading, error, setValorInput, buscar, borrar, completado, todos, totalProductos, productosCompletados, openModal, setOpenModal, añadirTarea, editar, actualizarProducto}}>
             {children}
         </TodoContext.Provider>
     )

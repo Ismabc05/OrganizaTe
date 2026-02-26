@@ -36,7 +36,7 @@ function AppUi () {
             <ListItem key={producto.id} text={producto.text} complete={producto.complete} 
             onComplete={() => completado(producto.id)}
             onDelete={() => borrar(producto.id)}
-            onEdit={() => editar()}/>
+            onEdit={() => editar(producto.id)}/>
         ) )}
 
         </Lista>
