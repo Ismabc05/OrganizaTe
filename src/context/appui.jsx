@@ -15,7 +15,7 @@ import React from 'react';
 
 
 function AppUi () {
-    const {loading, error, buscar, completado, borrar, todos, openModal, setOpenModal} = React.useContext(TodoContext);
+    const {loading, error, buscar, completado, borrar, todos, openModal, setOpenModal, editar} = React.useContext(TodoContext);
 
     return (
     <>
@@ -33,10 +33,10 @@ function AppUi () {
         {!loading && buscar.length === 0 && <Vacio/>}
 
         {buscar.map(producto =>(
-            <ListItem key={producto.text} text={producto.text} complete={producto.complete} 
-            onComplete={() => completado(producto.text)}
-            onDelete={() => borrar(producto.text)}
-            onEdit={() => console.log("Estamos editando")}/>
+            <ListItem key={producto.id} text={producto.text} complete={producto.complete} 
+            onComplete={() => completado(producto.id)}
+            onDelete={() => borrar(producto.id)}
+            onEdit={() => editar()}/>
         ) )}
 
         </Lista>

@@ -1,4 +1,3 @@
-import { SpeedInsights } from "@vercel/speed-insights/react"
 import React from 'react';
 import {  createHashRouter, RouterProvider, } from "react-router-dom";
 
@@ -10,12 +9,22 @@ import { NotFound } from "./componentes/notfound.jsx";
 const rutas = createHashRouter([
   {
     path: "/",
-    element: <AppUi />,
+    element: (
+      <TodoProvider>
+        <AppUi/>
+      </TodoProvider>
+    ),
   },
+
   {
     path: "/edit/:id",
-    element: <Edit />,
+    element: (
+    <TodoProvider>
+      <Edit/>
+    </TodoProvider>
+    ),
   },
+  
   {
     path: "*",
     element: <NotFound/>,
@@ -24,13 +33,7 @@ const rutas = createHashRouter([
 
 function App() {
 
-    return (
-    <TodoProvider>
-      <RouterProvider router={rutas} />
-      <SpeedInsights />
-    </TodoProvider>
-    
-  );
+    return ( <RouterProvider router={rutas} /> );
 }
 
 export default App
