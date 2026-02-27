@@ -1,38 +1,76 @@
 import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
 import { TodoContext } from "../context/context";
 
 function Edit() {
 
-    const { id } = useParams()
-    const navegar = useNavigate()
-    const { todos, actualizarProducto} = React.useContext(TodoContext)
+   const {
+      todoEditando,
+      actualizarProducto,
+      setOpenModal,
+      setTodoEditando
+   } = React.useContext(TodoContext);
 
-    const todo = todos.find(todo => todo.id === Number(id));
-    const [texto, setTexto] = React.useState(todo ? todo.text : "")
 
-    if(!todo) return <p>Producto no encontrado</p>
+   const [texto, setTexto] = React.useState("");
 
-    const guardarTexto = (event) => {
-        event.preventDefault()
-        actualizarProducto(todo.id, texto)
-        navegar("/")
-    }
+   React.useEffect(() => {
+      if (todoEditando) {
+         setTexto(todoEditando.text);
+      }
+   }, [todoEditando]);
 
-    const atras = () => {
-        navegar("/")
-    }
 
-    return (
-        <>
-            <form onSubmit={guardarTexto}>
-                <h1>Editar</h1>
-                <input value={texto} onChange={(event) => setTexto(event.target.value)}/>
-                <button type="submit">Guardar</button>
-                <button onClick={atras}>Atras</button>
-            </form>
-        </>
-    )
+   const guardar = (e) => {
+      e.preventDefault();
+
+      if (!texto.trim()) return;
+
+      actualizarProducto(todoEditando.id, texto);
+
+      cerrar();
+   };
+
+
+   const cerrar = () => {
+      setOpenModal(false);
+      setTodoEditando(null);
+   };
+
+
+   if (!todoEditando) return null;
+
+
+   return (
+      <form onSubmit={guardar} className="edit-form">
+
+         <h2 className="edit-title">Editar tarea</h2>
+
+         <input
+            className="edit-input"
+            value={texto}
+            onChange={(e) => setTexto(e.target.value)}
+            placeholder="Editar tarea..."
+            autoFocus
+         />
+
+         <div className="edit-buttons">
+
+            <button type="submit" className="btn-save">
+               Guardar
+            </button>
+
+            <button
+               type="button"
+               onClick={cerrar}
+               className="btn-cancel"
+            >
+               Cancelar
+            </button>
+
+         </div>
+
+      </form>
+   );
 }
 
-export { Edit}
+export { Edit };

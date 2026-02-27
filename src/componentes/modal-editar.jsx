@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import "../estilos/modal.css";
 import { TodoContext } from "../context/context";
 
-function Modal ({children}) {
+function ModalEditar ({children}) {
 
     const { openModal, setOpenModal} = React.useContext(TodoContext);
 
@@ -21,7 +21,7 @@ function Modal ({children}) {
             </div>
         </div>,
 
-        document.getElementById("modal")
+        document.getElementById("modal-editar")
 
 
     )
@@ -29,4 +29,4 @@ function Modal ({children}) {
 }
 
 
-export{ Modal }
+export{ ModalEditar }

@@ -8,14 +8,15 @@ import { Error } from  '../componentes/error.jsx';
 import { Vacio } from  '../componentes/vacio.jsx';
 import { Mensaje } from '../componentes/mensaje.jsx';
 import { TodoContext} from './context.jsx';
-import { Modal } from '../componentes/modal.jsx';
+import { ModalAñadir } from '../componentes/modal-añadir.jsx';
 import { Form } from '../componentes/form.jsx';
+import { Edit  } from "../componentes/edit.jsx"
 import React from 'react';
 
 
 
 function AppUi () {
-    const {loading, error, buscar, completado, borrar, todos, openModal, setOpenModal, editar} = React.useContext(TodoContext);
+    const {loading, error, buscar, completado, borrar, todos, openModal, setOpenModal, abrirEditar, todoEditando} = React.useContext(TodoContext);
 
     return (
     <>
@@ -36,7 +37,7 @@ function AppUi () {
             <ListItem key={producto.id} text={producto.text} complete={producto.complete} 
             onComplete={() => completado(producto.id)}
             onDelete={() => borrar(producto.id)}
-            onEdit={() => editar(producto.id)}/>
+            onEdit={() => abrirEditar(producto)}/>
         ) )}
 
         </Lista>
@@ -44,10 +45,17 @@ function AppUi () {
         <Boton/>
 
         {openModal && (
-            <Modal>
-                <Form/>
-            </Modal>
-        )}
+            <ModalAñadir>
+
+               {todoEditando
+                  ? <Edit/>
+                  : <Form/>
+               }
+
+            </ModalAñadir>
+         )}
+
+
     </>
   )
 }

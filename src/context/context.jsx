@@ -1,6 +1,5 @@
-import React from "react";
+import React, { use } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
-import { useNavigate } from "react-router-dom";
 
 const TodoContext = React.createContext();
 
@@ -8,7 +7,8 @@ function TodoProvider ({children}) {
     const {item: todos, actualizar: setTodos, loading, error} = useLocalStorage("LISTA_V2", []);
     const [valorInput, setValorInput] = React.useState("");
     const [openModal, setOpenModal] = React.useState(false);
-    const navegar = useNavigate()
+    const [todoEditando, setTodoEditando] = React.useState(null);
+
 
     const productosCompletados = todos.filter(producto => !!producto.complete).length
     const totalProductos = todos.length
@@ -23,7 +23,7 @@ function TodoProvider ({children}) {
         nuevaLista.push({
             id,
             text: newText,
-            completado: false,
+            complete: false,
         })
         setTodos(nuevaLista)
     }
@@ -40,20 +40,20 @@ function TodoProvider ({children}) {
     setTodos(nuevaLista);
     }
 
-    const editar = (id) => {
-        navegar(`/edit/${id}`)
-    }
-
     const actualizarProducto = (id, newTexto) => {
          const nuevaLista = [... todos];
-        const nuevoCompletado = nuevaLista.findIndex((producto) => producto.id === id);
-        nuevaLista[nuevoCompletado].text = newTexto;
+        const nuevoEditado = nuevaLista.findIndex((producto) => producto.id === id);
+        nuevaLista[nuevoEditado].text = newTexto;
         setTodos(nuevaLista);
-
     }
 
+    const abrirEditar = (todo) => {
+        setTodoEditando(todo);
+        setOpenModal(true);
+    };
+
     return(
-        <TodoContext.Provider value={{loading, error, setValorInput, buscar, borrar, completado, todos, totalProductos, productosCompletados, openModal, setOpenModal, añadirTarea, editar, actualizarProducto}}>
+        <TodoContext.Provider value={{loading, error, setValorInput, buscar, borrar, completado, todos, totalProductos, productosCompletados, openModal, setOpenModal, añadirTarea, actualizarProducto, abrirEditar, todoEditando, setTodoEditando}}>
             {children}
         </TodoContext.Provider>
     )
