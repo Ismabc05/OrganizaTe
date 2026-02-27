@@ -1,14 +1,10 @@
 import React from "react";
 import { TodoContext } from "../context/context";
+import "../estilos/form.css";
 
 function Edit() {
 
-   const {
-      todoEditando,
-      actualizarProducto,
-      setOpenModal,
-      setTodoEditando
-   } = React.useContext(TodoContext);
+   const {todoEditando, actualizarProducto, setOpenModal, setTodoEditando } = React.useContext(TodoContext);
 
 
    const [texto, setTexto] = React.useState("");
@@ -22,11 +18,8 @@ function Edit() {
 
    const guardar = (e) => {
       e.preventDefault();
-
       if (!texto.trim()) return;
-
       actualizarProducto(todoEditando.id, texto);
-
       cerrar();
    };
 
@@ -36,35 +29,35 @@ function Edit() {
       setTodoEditando(null);
    };
 
+   const editarTexto = (event) => {
+      setTexto(event.target.value)
+   }
+
 
    if (!todoEditando) return null;
 
 
    return (
-      <form onSubmit={guardar} className="edit-form">
+      <form onSubmit={guardar} className="form">
 
-         <h2 className="edit-title">Editar tarea</h2>
+         <label className="label"> Editar tarea:</label>
 
-         <input
-            className="edit-input"
-            value={texto}
-            onChange={(e) => setTexto(e.target.value)}
-            placeholder="Editar tarea..."
-            autoFocus
-         />
+         <textarea value={texto} onChange={editarTexto} className="textarea" onKeyDown={(e) => {
+            if(e.key=== "Enter" && texto.trim() !== ""){ // si el usuario no escribio nada
+                    e.preventDefault();
+                    guardar(e);
+                    cerrar();
+               }}}>
+         </textarea>
 
-         <div className="edit-buttons">
+         <div className="contenedor-botones">
 
-            <button type="submit" className="btn-save">
-               Guardar
+            <button type="button" onClick={cerrar} className="btn-cancelar">
+               Cancelar
             </button>
 
-            <button
-               type="button"
-               onClick={cerrar}
-               className="btn-cancel"
-            >
-               Cancelar
+            <button type="submit" className="btn-confirmar">
+               Guardar
             </button>
 
          </div>

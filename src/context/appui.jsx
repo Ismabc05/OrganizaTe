@@ -52,6 +52,11 @@ function AppUi () {
                   : <Form/>
                }
 
+                {/* 👉 Si todoEditando EXISTE → muestra Edit
+                    👉 Si todoEditando es null → muestra Form 
+                */}
+
+
             </ModalAñadir>
          )}
 
