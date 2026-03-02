@@ -5,7 +5,7 @@ Una aplicación sencilla para **gestionar tus tareas diarias**, mantenerte organ
 ![Demo de la app](assets/demo.gif)  <!-- Reemplaza con tu GIF -->
 
 ## 🚀 Funcionalidades
-- Añadir y eliminar tareas
+- Añadir ,editar y eliminar tareas
 - Marcar tareas como completadas
 - Filtrar tareas por estado (pendientes / completadas)
 - Skeletons mientras carga la lista
@@ -17,7 +17,7 @@ Una aplicación sencilla para **gestionar tus tareas diarias**, mantenerte organ
 - Hooks: `useState`, `useEffect`
 - LocalStorage para persistencia de tareas
 - Skeletons para mejorar la UX
-- React Icons
+- React Icon
 
 ## 💻 Instalación
 Clona el repositorio:
