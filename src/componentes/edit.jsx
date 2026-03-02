@@ -13,7 +13,7 @@ function Edit() {
       if (todoEditando) {
          setTexto(todoEditando.text);
       }
-   }, [todoEditando]);
+   }, [todoEditando]); // se ejecuta cada vez que cambia todoEditando
 
 
    const guardar = (e) => {
